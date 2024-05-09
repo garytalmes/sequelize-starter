@@ -18,20 +18,9 @@ const clubs = [
   { name: "TrendSetters", category: "Clothing", discount: 10 }
 ]
 
-const memberships = [
-  { customer_id: 1, club_id: 1 },
-  { customer_id: 1, club_id: 3 },
-  { customer_id: 2, club_id: 3 },
-  { customer_id: 2, club_id: 2 },
-  { customer_id: 3, club_id: 2 },
-  { customer_id: 4, club_id: 3 },
-  { customer_id: 4, club_id: 1 }
-]
-
 
 module.exports = {
   customers,
   orders,
-  clubs,
-  memberships
+  clubs
 }

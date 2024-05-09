@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
-const { Customer, Order, Club, Membership } = require('../models');
-const { customers, orders, clubs, memberships } = require("./seedData.js")
+const { Customer, Order, Club } = require('../models');
+const { customers, orders, clubs } = require("./seedData.js")
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -8,7 +8,6 @@ const seedDatabase = async () => {
   let customersArr 
   let clubsArr
   let ordersArr 
-  let membershipsArr
 
   try {
     const customersCreated = await Customer.bulkCreate(customers, { individualHooks: true });
@@ -16,8 +15,6 @@ const seedDatabase = async () => {
   } catch(err){
     return console.log(err.message)
   }
-
-  console.log(customersArr)
 
   try {
     const clubsCreated = await Club.bulkCreate(clubs, { individualHooks: true });
@@ -35,15 +32,6 @@ const seedDatabase = async () => {
     } 
   }
   
-  // if( customersArr && clubsArr ){
-  //   try {
-  //     const membershipsCreated = await Membership.bulkCreate(memberships);
-  //     membersArr = membershipsCreated.map( (member) => member.get({ plain: true }))
-  //   } catch(err){
-  //     return console.log( err.message )
-  //   } 
-  // }
-
   console.log("Seeding complete")
   process.exit(0);
 };
