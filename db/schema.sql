@@ -1,4 +1,6 @@
 \c postgres;
 
-DROP DATABASE IF EXISTS customers_db;
-CREATE DATABASE customers_db;
+DROP DATABASE IF EXISTS store_db;
+CREATE DATABASE store_db;
+
+\c store_db;
